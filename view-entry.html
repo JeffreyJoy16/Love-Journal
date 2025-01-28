@@ -35,7 +35,8 @@
   <div class="container">
     <h1>Journal Entry</h1>
     <div class="entry" id="entry-detail">
-      <!-- Entry details will be inserted here -->
+      <p>Image URL: <span id="image-url"></span></p>
+      <p>Text: <span id="text-content"></span></p>
     </div>
   </div>
 
@@ -51,6 +52,10 @@
     const image = getQueryParameter('image');
     const text = getQueryParameter('text');
     
+    // Debugging output
+    document.getElementById('image-url').textContent = image;
+    document.getElementById('text-content').textContent = text;
+
     // Display the entry
     if (image) {
       const img = document.createElement('img');
