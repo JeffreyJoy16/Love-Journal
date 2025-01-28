@@ -5,7 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love Journal</title>
   <style>
-    /* Your existing CSS code */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6e6;
+      color: #d6336c;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      background-color: #ffccd5;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+
+    input[type="file"], textarea, button {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      height: 100px;
+      border: 1px solid #d6336c;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #d6336c;
+      color: white;
+      border: none;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b52b55;
+    }
+
+    .entries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .entry {
+      border: 1px solid #d6336c;
+      border-radius: 8px;
+      padding: 1rem;
+      background: #ffe6e6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .delete-button {
+      background: #ff6f61;
+      border: none;
+      color: white;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .delete-button:hover {
+      background: #e85549;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .warning {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    /* Floating Hearts Animation */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff6f61;
+      opacity: 0.8;
+      transform: rotate(45deg);
+      margin-left: -15px;
+      margin-top: -15px;
+      animation: float 5s infinite ease-in-out;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff6f61;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart:after {
+      left: 15px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(calc(-100px + 200px * random()));
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
