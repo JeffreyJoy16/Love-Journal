@@ -120,7 +120,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: -1;
+      z-index: -1; /* Set to -1 to ensure hearts are in the background */
     }
 
     .heart {
@@ -130,8 +130,8 @@
       background-color: #ff6f61;
       opacity: 0.8;
       transform: rotate(45deg);
-      margin-left: -15px;
-      margin-top: -15px;
+      margin-left: -15px; /* Adjust to center */
+      margin-top: -15px; /* Adjust to center */
       animation: float 5s infinite ease-in-out;
     }
 
@@ -313,7 +313,7 @@
     // Load entries when the page is loaded
     loadEntries();
 
-    // Floating hearts animation (no changes here)
+    // Floating hearts animation
     const background = document.querySelector('.background');
     const createHeart = () => {
       const heart = document.createElement('div');
