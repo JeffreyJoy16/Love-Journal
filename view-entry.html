@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Journal Entry</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6e6;
+      color: #d6336c;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .entry img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .entry p {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Journal Entry</h1>
+    <div class="entry" id="entry-detail">
+      <!-- Entry details will be inserted here -->
+    </div>
+  </div>
+
+  <script>
+    const entryDetail = document.getElementById('entry-detail');
+    
+    // Function to get query parameter values
+    const getQueryParameter = (param) => {
+      const urlParams = new URLSearchParams(window.location.search);
+      return decodeURIComponent(urlParams.get(param) || '');
+    };
+    
+    const image = getQueryParameter('image');
+    const text = getQueryParameter('text');
+    
+    // Display the entry
+    if (image) {
+      const img = document.createElement('img');
+      img.src = image;
+      entryDetail.appendChild(img);
+    }
+
+    if (text) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = text;
+      entryDetail.appendChild(paragraph);
+    }
+  </script>
+</body>
+</html>
