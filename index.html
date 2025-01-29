@@ -147,7 +147,7 @@
     const imageWarning = document.getElementById('image-warning');
     const textWarning = document.getElementById('text-warning');
 
-    const MAX_IMAGE_SIZE = 3 * 1024 * 1024; // 3MB
+    const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5MB
     const MAX_WORDS = 1000;
 
     // Function to Upload Image to Cloudinary
@@ -209,7 +209,7 @@
       const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
 
       if (file && file.size > MAX_IMAGE_SIZE) {
-        imageWarning.textContent = 'Image size exceeds 3MB. Please upload a smaller image.';
+        imageWarning.textContent = 'Image size exceeds 5MB. Please upload a smaller image.';
         return;
       } else {
         imageWarning.textContent = '';
